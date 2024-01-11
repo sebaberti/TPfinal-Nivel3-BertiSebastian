@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionWeb", "PresentacionWeb\PresentacionWeb.csproj", "{B249A575-F6DD-4338-9509-B2F1E7C48E69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{DA0DA2B7-03CD-4661-B3E7-C2A1C41E01CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{82B3E9E4-1B19-4724-90A4-28D227D2B88B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B249A575-F6DD-4338-9509-B2F1E7C48E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B249A575-F6DD-4338-9509-B2F1E7C48E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B249A575-F6DD-4338-9509-B2F1E7C48E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B249A575-F6DD-4338-9509-B2F1E7C48E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0DA2B7-03CD-4661-B3E7-C2A1C41E01CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0DA2B7-03CD-4661-B3E7-C2A1C41E01CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0DA2B7-03CD-4661-B3E7-C2A1C41E01CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0DA2B7-03CD-4661-B3E7-C2A1C41E01CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82B3E9E4-1B19-4724-90A4-28D227D2B88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B3E9E4-1B19-4724-90A4-28D227D2B88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B3E9E4-1B19-4724-90A4-28D227D2B88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B3E9E4-1B19-4724-90A4-28D227D2B88B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26505FDA-EDEB-4D84-A97B-52E4B0AC5DB3}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+C:\Users\MSI\source\repos\WebArticulos\Negocio\bin\Debug\Negocio.dll
+C:\Users\MSI\source\repos\WebArticulos\Negocio\bin\Debug\Negocio.pdb
+C:\Users\MSI\source\repos\WebArticulos\Negocio\bin\Debug\Dominio.dll
+C:\Users\MSI\source\repos\WebArticulos\Negocio\bin\Debug\Dominio.pdb
+C:\Users\MSI\source\repos\WebArticulos\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\MSI\source\repos\WebArticulos\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\MSI\source\repos\WebArticulos\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\MSI\source\repos\WebArticulos\Negocio\obj\Debug\Negocio.dll
+C:\Users\MSI\source\repos\WebArticulos\Negocio\obj\Debug\Negocio.pdb
