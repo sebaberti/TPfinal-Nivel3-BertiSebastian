@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-6">
             <div class="mb-3">
                 <label for="txtId" class="form-label">Id</label>
@@ -44,7 +44,7 @@
             <div class="mb-3">
 
                 <asp:Button Text="Aceptar" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
-                <a href="ListaArticulos.aspx">Cancelar</a>
+                <a href="ListaArticulos.aspx" class="btn btn-secondary">Cancelar</a>
             </div>
 
         </div>
@@ -62,7 +62,7 @@
                             AutoPostBack="true" OnTextChanged="txtImagenUrl_TextChanged" />
                     </div>
                     <div class="mb-3">
-                        <asp:Image ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png" runat="server" ID="imgArticulo" Width="60%" />
+                        <asp:Image ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png" runat="server" ID="imgArticulo" style="height:350px; width:350px;"   onerror="this.onerror=null; this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ28WA2ZQREgEZ1jva2HNK6hzzNLXtnkxGhG2eCg1bAuw&s'" />
                     </div>
 
                 </ContentTemplate>

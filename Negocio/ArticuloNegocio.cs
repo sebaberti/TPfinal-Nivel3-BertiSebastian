@@ -34,7 +34,8 @@ namespace Negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Imagen = (string)datos.Lector["ImagenUrl"];
-                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Precio = decimal.Parse(string.Format("{0:F2}", datos.Lector["Precio"]));
+
 
                     aux.Categoria = new Categoria();
                     aux.Categoria.Id = (int)datos.Lector["IdCategoria"];

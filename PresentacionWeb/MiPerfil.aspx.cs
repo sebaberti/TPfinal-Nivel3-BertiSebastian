@@ -31,7 +31,7 @@ namespace PresentacionWeb
                             imgNuevoPerfil.ImageUrl = "~/Images/" + user.ImagenPerfil;
                     }
                     else {
-                        Session.Add("error", "Debes loguarte");
+                        Session.Add("error", "Debes estar logueado para ingresar a esta seccion");
                              Response.Redirect("Error.aspx", false);
            
                     }

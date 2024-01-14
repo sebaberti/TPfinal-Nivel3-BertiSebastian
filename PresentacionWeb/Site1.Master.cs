@@ -23,7 +23,7 @@ namespace PresentacionWeb
                 if (Seguridad.sesionActiva(Session["user"]))
                 {
                     Users user = (Users)Session["user"];
-                    lblUser.Text = user.Email;
+                    lblUser.Text = user.Nombre;
                     if (!string.IsNullOrEmpty(user.ImagenPerfil))
                         imgPerfilAvatar.ImageUrl = "~/Images/" + user.ImagenPerfil;
                 }

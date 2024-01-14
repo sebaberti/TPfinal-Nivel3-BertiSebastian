@@ -4,8 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
-    <h1>Lista de Articulos</h1>
+    <h1 class="text-center m-5">Lista de Articulos</h1>
     <asp:UpdatePanel runat="server" ID="UpdatePanelList">
+
         <ContentTemplate>
 
     <div class="row">

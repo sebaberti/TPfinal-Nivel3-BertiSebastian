@@ -17,7 +17,7 @@ namespace PresentacionWeb
         {
             if (!Seguridad.esAdmin(Session["user"]))
             {
-                Session.Add("error", "se requiere permiso admin");
+                Session.Add("error", "Para tener acceso a esta Sección debes ser un usuario con permiso de Administrador.");
                 Response.Redirect("Error.aspx");
             }
 

@@ -38,7 +38,7 @@ namespace PresentacionWeb
                 }
                 else
                 {
-                    Session.Add("error", "User o Pass incorrectos");
+                    Session.Add("error", "Usuario o contrasenia incorrectos");
                     Response.Redirect("Error.aspx", false);
                 }
 
