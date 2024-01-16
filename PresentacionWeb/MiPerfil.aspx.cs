@@ -28,7 +28,7 @@ namespace PresentacionWeb
                         txtApellido.Text = user.Apellido;
 
                         if (!string.IsNullOrEmpty(user.ImagenPerfil))
-                            imgNuevoPerfil.ImageUrl = "~/Images/" + user.ImagenPerfil;
+                            imgNuevoPerfil.ImageUrl = "~/Images/" + user.ImagenPerfil + "?v=" + DateTime.Now.Ticks.ToString(); 
                     }
                     else {
                         Session.Add("error", "Debes estar logueado para ingresar a esta seccion");
@@ -46,13 +46,13 @@ namespace PresentacionWeb
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            UsersNegocio negocio = new UsersNegocio();
-            Users user = (Users)Session["user"];
             try
             {
                 Page.Validate();
                 if (!Page.IsValid)
                     return;
+                 UsersNegocio negocio = new UsersNegocio();
+                  Users user = (Users)Session["user"];
 
                 if (txtImagen.PostedFile.FileName != "")
                 {
@@ -68,7 +68,9 @@ namespace PresentacionWeb
                 negocio.actualizar(user);
 
                 Image img = (Image)Master.FindControl("imgPerfilAvatar");
-                img.ImageUrl = "~/Images/" + user.ImagenPerfil;
+                img.ImageUrl = "~/Images/" + user.ImagenPerfil + "?v=" + DateTime.Now.Ticks.ToString();
+                imgNuevoPerfil.ImageUrl = "~/Images/" + user.ImagenPerfil + "?v=" + DateTime.Now.Ticks.ToString();
+
             }
             catch (Exception ex)
             {

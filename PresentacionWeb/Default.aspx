@@ -4,9 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server" ID="ScriptManager1"></asp:ScriptManager>
-    
-
-        
 
             <div class="row" style="margin-top:65px;">
                 <div class="col-6">
@@ -14,6 +11,7 @@
 
 
                         <asp:Label Text="Filtrar" runat="server" />
+                        <asp:Label Text="" ID="lblError" runat="server" />
                         <asp:TextBox runat="server" ID="txtFiltro" CssClass="form-control" AutoPostBack="false" />
                     </div>
                 </div>
@@ -25,7 +23,8 @@
                     ControlToValidate="txtFiltro"
                     ValidationExpression="^[a-zA-Z]+$"
                     ErrorMessage="Solo se permiten letras."
-                    Display="Dynamic" />
+                    Display="Dynamic" 
+                    CssClass="error-message"/>
 
                 <%} %>
 
@@ -98,7 +97,7 @@
 
                             </div>
                         </div>
-
+                      
                     </ItemTemplate>
                 </asp:Repeater>
        

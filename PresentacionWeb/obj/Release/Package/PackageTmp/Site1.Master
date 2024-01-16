@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="PresentacionWeb.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Web-Artiuclos</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="Content/miCss.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
+                <div class="container">
+                    <a class="navbar-brand" href="/Default.aspx">Articulos</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ListaArticulos.aspx">List</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="Favoritos.aspx">Favoritos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="MiPerfil.aspx">Mi Perfil</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="d-flex">
+
+                        <% if (!Negocio.Seguridad.sesionActiva(Session["user"]))
+                            { %>
+                        <a href="Login.aspx" class="btn btn-success me-2">Login</a>
+                        <a href="Register.aspx" class="btn btn-outline-primary m-auto">Registrarse</a>
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                        <asp:Button Text="Salir" ID="btnSalir" CssClass="btn btn-outline-primary me-2" OnClick="btnSalir_Click" runat="server" />
+                        <asp:Label ID="lblUser" Text="user" CssClass="text-light m-auto me-2" runat="server" />
+                        <%} %>
+                        <asp:Image ID="imgPerfilAvatar" Style="height: 40px; width: 40px; border-radius: 50%; margin-left: 10px;"
+                            runat="server" />
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+   <footer>
+        <div class="container-fluid bg-dark p-2" style="width:100%">
+            <div class="row">
+                <div class="col">
+                    <p class="text-white text-center">
+                        2024 © || Desarrollado por <a href="https://www.linkedin.com/in/sebastian-berti-583147213/" class="text-decoration-none">Sebastian Berti</a> || <a href="https://github.com/sebaberti" <i class="bi bi-github text-white"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

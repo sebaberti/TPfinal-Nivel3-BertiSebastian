@@ -14,7 +14,7 @@
                 <label class="form-label">Password</label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="txtPassword" TextMode="Password" />
             </div>
-            <div class="text-center m-4">
+            <div class="text-center m-4 d-flex gap-3 text-center justify-content-center">
                 <asp:Button Text="Registrarse" runat="server" OnClick="btnRegistrarse_Click" CssClass="btn btn-primary" ID="btnRegistrarse" />
                 <a href="Default.aspx" class="btn btn-warning">Cancelar</a>
             </div>

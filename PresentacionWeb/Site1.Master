@@ -70,12 +70,9 @@
             <div class="row">
                 <div class="col">
                     <p class="text-white text-center">
-                        2024 © || Desarrollado por <a href="https://www.linkedin.com/in/sebastian-berti-583147213/" class="text-decoration-none">Sebastian Berti</a>
+                        2024 © || Desarrollado por <a href="https://www.linkedin.com/in/sebastian-berti-583147213/" class="text-decoration-none">Sebastian Berti</a> || <a href="https://github.com/sebaberti" <i class="bi bi-github text-white"></i></a>
                     </p>
                 </div>
-                <a href="https://github.com/sebaberti" class="text-center display-4"><i class="bi bi-github text-white"></i></a>
-
-
             </div>
         </div>
     </footer>

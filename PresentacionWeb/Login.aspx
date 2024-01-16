@@ -13,7 +13,7 @@
                 <label class="form-label">Password</label>
                 <asp:TextBox runat="server" cssClass="form-control"  ID="txtPassword" TextMode="Password"/>
             </div>
-            <div class="text-center m-4 ">
+            <div class="text-center m-4 d-flex gap-3 text-center justify-content-center">
             <asp:Button text="Ingresar" runat="server" OnClick="btnIngresar_Click" cssClass="btn btn-primary" ID="btnIngresar"   />
             <a href="Default.aspx" class="btn btn-warning">Cancelar</a>
             </div>

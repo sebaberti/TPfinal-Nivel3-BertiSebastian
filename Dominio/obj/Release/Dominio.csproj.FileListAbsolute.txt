@@ -1,0 +1,6 @@
+C:\Users\MSI\source\repos\WebArticulos\Dominio\bin\Release\Dominio.dll
+C:\Users\MSI\source\repos\WebArticulos\Dominio\bin\Release\Dominio.pdb
+C:\Users\MSI\source\repos\WebArticulos\Dominio\obj\Release\Dominio.csproj.AssemblyReference.cache
+C:\Users\MSI\source\repos\WebArticulos\Dominio\obj\Release\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\MSI\source\repos\WebArticulos\Dominio\obj\Release\Dominio.dll
+C:\Users\MSI\source\repos\WebArticulos\Dominio\obj\Release\Dominio.pdb

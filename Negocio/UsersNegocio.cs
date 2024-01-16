@@ -11,18 +11,31 @@ namespace Negocio
 {
     public class UsersNegocio
     {
-        public void actualizar(Users user)
+        public bool Login(Users user)
         {
-                AccesoDatos datos = new AccesoDatos();
+            AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                datos.setearConsulta("Update USERS set urlImagenPerfil = @imagen, Nombre = @nombre, Apellido = @apellido Where Id = @id");
-                datos.setearParametro("@imagen", (object)user.ImagenPerfil ?? DBNull.Value);
-                datos.setearParametro("@nombre", user.Nombre);
-                datos.setearParametro("@apellido", user.Apellido);
-                datos.setearParametro("@id", user.Id);
-                datos.ejecutarAccion();
+                datos.setearConsulta("Select id, email, pass, admin, urlImagenPerfil, nombre, apellido from USERS where email = @email And pass = @pass");
+                datos.setearParametro("@email" , user.Email);
+                datos.setearParametro("@pass", user.Pass);
+                datos.ejecutarLectura();
 
+                if (datos.Lector.Read())
+                {
+                    user.Id = (int)datos.Lector["id"];
+                    user.Admin = (bool)(datos.Lector["admin"]);
+                    if (!(datos.Lector["urlImagenPerfil"] is DBNull))
+                        user.ImagenPerfil = (string)(datos.Lector["urlImagenPerfil"]);
+                    if (!(datos.Lector["nombre"] is DBNull))
+                        user.Nombre = (string)(datos.Lector["nombre"]);
+                    if (!(datos.Lector["apellido"] is DBNull))
+                        user.Apellido = (string)(datos.Lector["apellido"]);
+                    
+                    return true;
+                }
+                return false;
             }
             catch (Exception ex)
             {
@@ -34,7 +47,6 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-
         public int insertarNuevo(Users nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -60,31 +72,20 @@ namespace Negocio
         }
 
 
-        public bool Login(Users user)
+        public void actualizar(Users user)
         {
-            AccesoDatos datos = new AccesoDatos();
-
+                AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("Select id, email, pass, admin, urlImagenPerfil, nombre, apellido from USERS where email = @email And pass = @pass");
-                datos.setearParametro("@email" , user.Email);
-                datos.setearParametro("@pass", user.Pass);
-                datos.ejecutarLectura();
+                datos.setearConsulta("Update USERS set Nombre = @nombre, Apellido = @apellido,urlImagenPerfil = @imagen, Email =@email Where Id = @id");
+                datos.setearParametro("@nombre", user.Nombre);
+                datos.setearParametro("@apellido", user.Apellido);
+                datos.setearParametro("@email", user.Email);
+                //datos.setearParametro("@imagen", (object)user.ImagenPerfil ?? DBNull.Value);
+                datos.setearParametro("@imagen", user.ImagenPerfil != null ? user.ImagenPerfil : "");
+                datos.setearParametro("@id", user.Id);
+                datos.ejecutarAccion();
 
-                if (datos.Lector.Read())
-                {
-                    user.Id = (int)datos.Lector["id"];
-                    user.Admin = (bool)datos.Lector["admin"];
-                    if (!(datos.Lector["urlImagenPerfil"] is DBNull))
-                        user.ImagenPerfil = (string)datos.Lector["urlImagenPerfil"];
-                    if (!(datos.Lector["nombre"] is DBNull))
-                        user.Nombre = (string)datos.Lector["nombre"];
-                    if (!(datos.Lector["apellido"] is DBNull))
-                        user.Apellido = (string)datos.Lector["apellido"];
-                    
-                    return true;
-                }
-                return false;
             }
             catch (Exception ex)
             {
@@ -96,6 +97,9 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+
+
 
     }
 }

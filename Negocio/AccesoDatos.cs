@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Web.Configuration;
 
 namespace Negocio
 {
@@ -21,7 +22,8 @@ public class AccesoDatos
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=DESKTOP-65G8FJS\\SQLEXPRESS; database = CATALOGO_WEB_DB; integrated security = true");
+            conexion = new SqlConnection(WebConfigurationManager.AppSettings["cadenaConexion"]);
+            //conexion = new SqlConnection("server=DESKTOP-65G8FJS\\SQLEXPRESS; database = CATALOGO_WEB_DB; integrated security = true");
             comando = new SqlCommand();
         }
 
@@ -30,11 +32,7 @@ public class AccesoDatos
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = Consulta;
         }
-        //public void setearProcedimiento(string sp)
-        //{
-        //    comando.CommandType = System.Data.CommandType.StoredProcedure;
-        //    comando.CommandText = sp;
-        //}
+        
         public void setearParametro(string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);
