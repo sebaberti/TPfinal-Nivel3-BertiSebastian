@@ -75,6 +75,7 @@ public class AccesoDatos
             try
             {
                 conexion.Open();
+                //Ejecuta la consulta escalar y convierte el resultado a un entero
                 return int.Parse(comando.ExecuteScalar().ToString());
 
             }

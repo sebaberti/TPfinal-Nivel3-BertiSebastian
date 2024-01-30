@@ -10,8 +10,11 @@ namespace Negocio
 {
     public static class Seguridad
     {
+    //static para que no haga falta intanciar cuando la quiero usar
         public static bool sesionActiva(object usuario)
         {
+            //validamos si hay una persona logueada
+            // 
             Users user = usuario != null ? (Users)usuario : null;
             if (user != null && user.Id != 0)
                 return true;

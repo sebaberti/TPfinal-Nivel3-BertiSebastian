@@ -21,6 +21,7 @@ namespace PresentacionWeb
                 {
                     if (Seguridad.sesionActiva(Session["user"]))
                     {
+                        // 
                         Users user = (Users)Session["user"];
                         txtEmail.Text = user.Email;
                         txtEmail.ReadOnly = true;

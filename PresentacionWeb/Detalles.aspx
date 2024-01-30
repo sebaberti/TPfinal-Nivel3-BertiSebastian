@@ -28,7 +28,7 @@
                                     <asp:Label Text="" ID="lblCategoria" runat="server" />
                                 </p>
                                 <p>
-                                    <asp:Label runat="server" Text="Descripcion el producto: "></asp:Label>
+                                    <asp:Label runat="server" Text="Descripcion del producto: "></asp:Label>
                                     <asp:Label Text="" ID="lblDescripciom" runat="server" />
                                 </p>
                                 <p>

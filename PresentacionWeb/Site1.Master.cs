@@ -15,11 +15,14 @@ namespace PresentacionWeb
         {
            
             imgPerfilAvatar.ImageUrl = "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png";
-
+           
+            // chequeamos si la pag que estoy por cargar no es ninguna de estas 3
+            // si no es quiero que me verifique la seguridad 
             if (!(Page is Login || Page is Register || Page is Error))
                 //{
                 //    if (!Seguridad.sesionActiva(Session["user"]))
                 //        Response.Redirect("Default.aspx", false);
+                
                 if (Seguridad.sesionActiva(Session["user"]))
                 {
                     Users user = (Users)Session["user"];

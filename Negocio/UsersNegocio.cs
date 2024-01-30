@@ -55,6 +55,7 @@ namespace Negocio
                 datos.setearConsulta("insert into USERS (email, pass, admin) output inserted.id values (@email, @pass, 0)");
                 datos.setearParametro("@email", nuevo.Email);
                 datos.setearParametro("pass", nuevo.Pass);
+                // va a obtener el id del registro que acabamos de insertar
                 return datos.ejecutarAccionScalar();
 
 
