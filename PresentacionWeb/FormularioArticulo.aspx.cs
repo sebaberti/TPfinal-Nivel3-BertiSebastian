@@ -54,6 +54,7 @@ namespace PresentacionWeb
                     txtImagenUrl.Text = seleccionado.Imagen;
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
+           
                     txtPrecio.Text = seleccionado.Precio.ToString();
                     cargarImagen(txtImagenUrl.Text);
                 }
@@ -78,8 +79,9 @@ namespace PresentacionWeb
    
                nuevo.Codigo = txtCodigo.Text;
                nuevo.Nombre = TxtNombre.Text;
-               nuevo.Descripcion = txtDescripcion.Text;
-               nuevo.Precio = decimal.Parse(txtPrecio.Text);
+                nuevo.Descripcion = txtDescripcion.Text;
+               
+                nuevo.Precio = decimal.Parse(txtPrecio.Text);
                nuevo.Imagen = txtImagenUrl.Text;
 
 
@@ -112,13 +114,7 @@ namespace PresentacionWeb
             }
         }
 
-        protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //int id = int.Parse(ddlCategoria.SelectedItem.Value);
-            //ddlMarca.DataSource = ((List<Articulo>)Session["listaArticulos"]).FindAll(x => x.Categoria.Id == id);
-            //ddlMarca.DataTextField = "Nombre";
-            //ddlMarca.DataBind();
-        }
+       
 
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {

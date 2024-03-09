@@ -26,7 +26,7 @@
 
                     <div class="mb-3">
                         <label for="ddlCategoria" class="form-label">Categoria:</label>
-                        <asp:DropDownList runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged" ID="ddlCategoria" CssClass="form-select"></asp:DropDownList>
+                        <asp:DropDownList runat="server" AutoPostBack="true" ID="ddlCategoria" CssClass="form-select"></asp:DropDownList>
                     </div>
 
                     <div class="mb-3">
@@ -39,13 +39,15 @@
 
             <div class="mb-3">
                 <label for="txtPrecio" class="form-label">Precio</label>
-                <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" />
+
+
+                <asp:TextBox runat="server" ID="txtPrecio" CssClass="form-control" REQUIRED />
                 <asp:RegularExpressionValidator ID="regexValidator" runat="server"
-                            ControlToValidate="txtPrecio"
-                            ValidationExpression="^[0-9]*$"
-                            ErrorMessage="Solo se permiten números."
-                            Display="Dynamic"
-                            CssClass="error-message" />
+                    ControlToValidate="txtPrecio"
+                    ValidationExpression="^\d+([\.,]\d+)?$"
+                    ErrorMessage="Solo se permiten números y un punto o coma como separador decimal."
+                    Display="Dynamic"
+                    CssClass="error-message" />
             </div>
             <div class="mb-3">
 
@@ -68,7 +70,7 @@
                             AutoPostBack="true" OnTextChanged="txtImagenUrl_TextChanged" />
                     </div>
                     <div class="mb-3">
-                        <asp:Image ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png" runat="server" ID="imgArticulo" style="height:350px; width:350px;"   onerror="this.onerror=null; this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ28WA2ZQREgEZ1jva2HNK6hzzNLXtnkxGhG2eCg1bAuw&s'" />
+                        <asp:Image ImageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png" runat="server" ID="imgArticulo" Style="height: 350px; width: 350px;" onerror="this.onerror=null; this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ28WA2ZQREgEZ1jva2HNK6hzzNLXtnkxGhG2eCg1bAuw&s'" />
                     </div>
 
                 </ContentTemplate>
@@ -80,19 +82,19 @@
 
             <asp:UpdatePanel runat="server" ID="UpdatePaneEl">
                 <ContentTemplate>
-            <div class="mb-3">
-                <asp:Button Text="Eliminar" OnClick="btnEliminar_Click" ID="btnEliminar" CssClass="btn btn-danger" runat="server" />
-            </div>
+                    <div class="mb-3">
+                        <asp:Button Text="Eliminar" OnClick="btnEliminar_Click" ID="btnEliminar" CssClass="btn btn-danger" runat="server" />
+                    </div>
 
-            <%if (ConfirmaEliminacion) { %>
+                    <%if (ConfirmaEliminacion)
+                        { %>
 
-                 <div class="mb-3">
-                <asp:CheckBox Text="Confirmar eliminacion" ID="chkconfirmaEliminacion" runat="server" />
-                <asp:Button Text="Eliminar" OnClick="btnConfirmaEliminar_Click" ID="btnConfirmaEliminar" CssClass="btn btn-outline-danger" runat="server" />
-            </div>
+                    <div class="mb-3">
+                        <asp:CheckBox Text="Confirmar eliminacion" ID="chkconfirmaEliminacion" runat="server" />
+                        <asp:Button Text="Eliminar" OnClick="btnConfirmaEliminar_Click" ID="btnConfirmaEliminar" CssClass="btn btn-outline-danger" runat="server" />
+                    </div>
 
-            <%}%>
-
+                    <%}%>
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>

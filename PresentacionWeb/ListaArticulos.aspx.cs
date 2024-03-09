@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using System.Diagnostics.Eventing.Reader;
+using System.Collections;
 
 namespace PresentacionWeb
 {
@@ -17,7 +18,7 @@ namespace PresentacionWeb
         {
             if (!Seguridad.esAdmin(Session["user"]))
             {
-                Session.Add("error", "Para tener acceso a esta Sección debes ser un usuario con permiso de Administrador.");
+                Session.Add("error", "Para tener acceso a esta sección debes ser un usuario con permiso de Administrador.");
                 Response.Redirect("Error.aspx");
             }
 
@@ -56,55 +57,37 @@ namespace PresentacionWeb
         {
 
             List<Articulo> lista = (List<Articulo>)Session["listaArticulos"];
-            List<Articulo> listaFiltrada; 
+            List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
-            if (!chkAzanzado.Checked)
             {
                 listaFiltrada = lista.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()));
                 dgvArticulos.DataSource = listaFiltrada;
                 dgvArticulos.DataBind();
             }
-
-            if (ddlAvanzado.SelectedItem.ToString() == "Mayor a" && chkAzanzado.Checked)
-            {
-                if (filtro == "")
-                    listaFiltrada = listaArticulos;
-                else
-                {
-                listaFiltrada = lista.FindAll(y => y.Precio > decimal.Parse(filtro));
-
-                dgvArticulos.DataSource = listaFiltrada;
-                dgvArticulos.DataBind();
-
-                }
-
-            }
-
-            if (ddlAvanzado.SelectedItem.ToString() == "Menor a" && chkAzanzado.Checked)
-            { 
-                if(filtro == "")
-                {
-                    listaFiltrada = listaArticulos;
-                }
-                else
-                {
-    
-                    listaFiltrada = lista.FindAll(y => y.Precio < decimal.Parse(filtro));
-
-                    dgvArticulos.DataSource = listaFiltrada;
-                    dgvArticulos.DataBind();
-
-                }
-               
-            }
-
-           
-
         }
 
         protected void chkAzanzado_CheckedChanged(object sender, EventArgs e)
         {
             txtFiltro.Text = "";
+        }
+
+   
+
+        protected void ddlAvanzado_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            List<Articulo> lista = (List<Articulo>)Session["listaArticulos"];
+            List<Articulo> listaFiltrada;
+
+            if (chkAzanzado.Checked && ddlAvanzado.SelectedItem.ToString() == "--Seleccionar--")
+            {
+                listaFiltrada = listaArticulos;
+            }
+            else
+            {
+                listaFiltrada = lista.FindAll(a => a.Categoria.Descripcion == ddlAvanzado.SelectedItem.ToString());
+                dgvArticulos.DataSource = listaFiltrada;
+                dgvArticulos.DataBind();
+            }
         }
     }
 }

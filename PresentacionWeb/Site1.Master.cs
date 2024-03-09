@@ -18,7 +18,7 @@ namespace PresentacionWeb
            
             // chequeamos si la pag que estoy por cargar no es ninguna de estas 3
             // si no es quiero que me verifique la seguridad 
-            if (!(Page is Login || Page is Register || Page is Error))
+            if (!(Page is Login || Page is Register || Page is Error ))
                 //{
                 //    if (!Seguridad.sesionActiva(Session["user"]))
                 //        Response.Redirect("Default.aspx", false);

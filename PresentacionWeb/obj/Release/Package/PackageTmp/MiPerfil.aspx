@@ -24,6 +24,7 @@
              <div class="mb-3">
                 <label class="form-label">Apellido</label>
                 <asp:TextBox runat="server" CssClass="form-control" ID="txtApellido"  />
+                 <asp:RequiredFieldValidator ErrorMessage="Debe cargar el apellido" CssClass="validacion" ControlToValidate="txtApellido" runat="server" />
             </div>
             
 

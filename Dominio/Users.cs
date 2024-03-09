@@ -20,8 +20,6 @@ namespace Dominio
 
         public string ImagenPerfil { get; set; }
 
-        public DateTime FechaNacimiento { get; set; }
-
         public bool Admin { get; set; }
 
     }

@@ -10,7 +10,7 @@ namespace Negocio
 {
     public static class Seguridad
     {
-    //static para que no haga falta intanciar cuando la quiero usar
+    //static para que no haga falta instanciar cuando la quiero usar
         public static bool sesionActiva(object usuario)
         {
             //validamos si hay una persona logueada
