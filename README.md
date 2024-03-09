@@ -10,4 +10,4 @@ Este proyecto es una aplicación web desarrollada en ASP.NET Web Forms realizado
 <li>SQL Server: Sistema de gestión de bases de datos relacional utilizado para almacenar y gestionar los datos de la aplicación.</li>
 <li>C#: Lenguaje de programación utilizado para escribir la lógica del lado del servidor en ASP.NET.</li>
 <li>HTML/CSS/JavaScript: Tecnologías web estándar utilizadas para crear la interfaz de usuario y la experiencia de usuario en el navegador web.</li>
-</ul>ul>
+</ul>
