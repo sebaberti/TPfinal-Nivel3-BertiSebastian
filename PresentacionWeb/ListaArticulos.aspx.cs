@@ -77,6 +77,7 @@ namespace PresentacionWeb
         {
             List<Articulo> lista = (List<Articulo>)Session["listaArticulos"];
             List<Articulo> listaFiltrada;
+            txtFiltro.Text = "";
 
             if (chkAzanzado.Checked && ddlAvanzado.SelectedItem.ToString() == "--Seleccionar--")
             {

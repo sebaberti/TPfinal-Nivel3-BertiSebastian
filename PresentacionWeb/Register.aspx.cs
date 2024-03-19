@@ -26,12 +26,22 @@ namespace PresentacionWeb
 
                 user.Email = txtEmail.Text;
                 user.Pass = txtPassword.Text;
-                user.Id = usersNegocio.insertarNuevo(user);
-                Session.Add("user", user);
 
-                emailService.armarCorreo(user.Email, "bienvenido", "hola te damos la bienvenida a nuestra app");
-                emailService.enviarEmail();
-                Response.Redirect("Default.aspx", false);
+                if (!usersNegocio.correoExistente(user.Email))
+                {
+                    user.Id = usersNegocio.insertarNuevo(user);
+                    Session.Add("user", user);
+
+                    emailService.armarCorreo(user.Email, "bienvenido", "hola te damos la bienvenida a nuestra app");
+                    emailService.enviarEmail();
+                    Response.Redirect("Default.aspx", false);
+
+                }
+                else
+                {
+                    lblError.Text = "Correo ya registrado, inicie sesion";
+                }
+
 
 
             }

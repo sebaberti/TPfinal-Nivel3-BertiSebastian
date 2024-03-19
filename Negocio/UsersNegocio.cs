@@ -100,7 +100,30 @@ namespace Negocio
         }
 
 
+        public bool correoExistente(string email)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) FROM USERS WHERE email = @email");
+                datos.setearParametro("@email", email);
 
+                int count = datos.ejecutarAccionScalar();
+
+                return count > 0;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex; 
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            
+        }
 
     }
 }

@@ -15,22 +15,51 @@ namespace PresentacionWeb
         {
             if (!IsPostBack)
             {
+                if (Session["user"] != null)
+                {
+                    Users user = (Users)Session["user"];
 
-                dgvArticulosFavoritos.DataSource = Session["Favoritos"];
+                    CargarFavoritosUsuario(user.Id.ToString());
+                }
+
+            }
+        }
+
+        public void CargarFavoritosUsuario(string userId)
+        {
+
+
+            FavNegocio negocioFav = new FavNegocio();
+
+            if (!string.IsNullOrEmpty(userId) && !IsPostBack)
+            {
+                dgvArticulosFavoritos.DataSource = negocioFav.listar(userId);
                 dgvArticulosFavoritos.DataBind();
             }
         }
 
         protected void dgvArticulosFavoritos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Articulo fav = new Articulo();
+
             string id = dgvArticulosFavoritos.SelectedDataKey.Value.ToString();
-            List<Articulo> lista = (List<Articulo>)Session["Favoritos"];
+            FavNegocio negocio = new FavNegocio();
+            Users user = (Users)Session["user"];
 
-            lista.RemoveAll(x => x.Id == int.Parse(id));
+            try
+            {
 
-            dgvArticulosFavoritos.DataSource = Session["Favoritos"];
-            dgvArticulosFavoritos.DataBind();
+                negocio.eliminarFav2(id.ToString());
+                dgvArticulosFavoritos.DataSource = negocio.listar(user.Id.ToString());
+                dgvArticulosFavoritos.DataBind();
+              
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
     }
 }

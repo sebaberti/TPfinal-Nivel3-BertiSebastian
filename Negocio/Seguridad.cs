@@ -26,6 +26,11 @@ namespace Negocio
         Users user = usuario != null ? (Users)usuario : null;
             return user != null ? user.Admin : false;
     }
+
+  
+
+
     }
+
 
 }

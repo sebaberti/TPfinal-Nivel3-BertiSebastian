@@ -12,7 +12,7 @@ namespace PresentacionWeb
 {
     public partial class FormularioArticulo : System.Web.UI.Page
     {
-       
+
         public bool ConfirmaEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,7 +28,7 @@ namespace PresentacionWeb
                 if (!IsPostBack)
                 {
                     List<Articulo> listaArticulos = negocio.listar();
-                   
+
                     ddlCategoria.DataSource = negocioCategoria.listar();
                     ddlCategoria.DataValueField = "Id";
                     ddlCategoria.DataTextField = "Descripcion";
@@ -46,7 +46,7 @@ namespace PresentacionWeb
                 {
                     btnEliminar.Enabled = true;
                     Articulo seleccionado = (negocio.listar(id))[0];
-                    
+
                     txtId.Text = id;
                     txtCodigo.Text = seleccionado.Codigo;
                     TxtNombre.Text = seleccionado.Nombre;
@@ -54,7 +54,7 @@ namespace PresentacionWeb
                     txtImagenUrl.Text = seleccionado.Imagen;
                     ddlCategoria.SelectedValue = seleccionado.Categoria.Id.ToString();
                     ddlMarca.SelectedValue = seleccionado.Marca.Id.ToString();
-           
+
                     txtPrecio.Text = seleccionado.Precio.ToString();
                     cargarImagen(txtImagenUrl.Text);
                 }
@@ -72,40 +72,40 @@ namespace PresentacionWeb
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-                ArticuloNegocio negocio = new ArticuloNegocio();
-                Articulo nuevo = new Articulo();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo nuevo = new Articulo();
             try
             {
-   
-               nuevo.Codigo = txtCodigo.Text;
-               nuevo.Nombre = TxtNombre.Text;
+
+                nuevo.Codigo = txtCodigo.Text;
+                nuevo.Nombre = TxtNombre.Text;
                 nuevo.Descripcion = txtDescripcion.Text;
-               
+
                 nuevo.Precio = decimal.Parse(txtPrecio.Text);
-               nuevo.Imagen = txtImagenUrl.Text;
+                nuevo.Imagen = txtImagenUrl.Text;
 
 
-               nuevo.Categoria = new Categoria();
-               nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
-                
+                nuevo.Categoria = new Categoria();
+                nuevo.Categoria.Id = int.Parse(ddlCategoria.SelectedValue);
 
-               nuevo.Marca = new Marca();
-               nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
+
+                nuevo.Marca = new Marca();
+                nuevo.Marca.Id = int.Parse(ddlMarca.SelectedValue);
 
                 if (Request.QueryString["id"] != null)
                 {
                     nuevo.Id = int.Parse(txtId.Text);
                     negocio.Modificar(nuevo);
-       
+
                 }
 
                 else
-                
+
                     negocio.agregar(nuevo);
 
-                    Response.Redirect("ListaArticulos.aspx", false);
+                Response.Redirect("ListaArticulos.aspx", false);
 
-            } 
+            }
             catch (Exception ex)
             {
 
@@ -114,12 +114,12 @@ namespace PresentacionWeb
             }
         }
 
-       
+
 
         protected void txtImagenUrl_TextChanged(object sender, EventArgs e)
         {
             cargarImagen(txtImagenUrl.Text);
-           
+
         }
 
         public void cargarImagen(string img)
@@ -136,11 +136,11 @@ namespace PresentacionWeb
         {
             try
             {
-                if(chkconfirmaEliminacion.Checked)
+                if (chkconfirmaEliminacion.Checked)
                 {
-                ArticuloNegocio negocio =  new ArticuloNegocio();
-                negocio.eliminar(int.Parse(txtId.Text));
-                Response.Redirect("ListaArticulos.aspx", false);
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    negocio.eliminar(int.Parse(txtId.Text));
+                    Response.Redirect("ListaArticulos.aspx", false);
 
                 }
             }
