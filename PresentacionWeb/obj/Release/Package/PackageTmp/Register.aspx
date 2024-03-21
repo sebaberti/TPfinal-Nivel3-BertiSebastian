@@ -8,11 +8,12 @@
             <h2 class="text-center mb-4">Crea tu perfil</h2>
             <div class="mb-3">
                 <label class="form-label">Email</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtEmail" />
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtEmail" REQUIRED />
+                <asp:Label Text="" ID="lblError" CssClass="error-message"  runat="server" />
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtPassword" TextMode="Password" />
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtPassword" TextMode="Password" REQUIRED />
             </div>
             <div class="text-center m-4 d-flex gap-3 text-center justify-content-center">
                 <asp:Button Text="Registrarse" runat="server" OnClick="btnRegistrarse_Click" CssClass="btn btn-primary" ID="btnRegistrarse" />

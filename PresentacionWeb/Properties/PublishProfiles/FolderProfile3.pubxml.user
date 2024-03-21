@@ -4,7 +4,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\MSI\OneDrive\Escritorio\pag</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\MSI\OneDrive\Escritorio\pagina</_PublishTargetUrl>
+    <History>True|2024-03-20T19:06:35.4917552Z;</History>
+    <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Dominio.dll">
@@ -17,16 +19,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/05/2018 16:10:50</publishTime>
     </File>
     <File Include="bin/Negocio.dll">
-      <publishTime>03/20/2024 16:01:50</publishTime>
+      <publishTime>03/20/2024 16:06:33</publishTime>
     </File>
     <File Include="bin/Negocio.pdb">
-      <publishTime>03/20/2024 16:01:50</publishTime>
+      <publishTime>03/20/2024 16:06:33</publishTime>
     </File>
     <File Include="bin/PresentacionWeb.dll">
-      <publishTime>03/20/2024 16:01:51</publishTime>
+      <publishTime>03/20/2024 16:06:34</publishTime>
     </File>
     <File Include="bin/PresentacionWeb.pdb">
-      <publishTime>03/20/2024 16:01:51</publishTime>
+      <publishTime>03/20/2024 16:06:34</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>08/08/2018 05:38:48</publishTime>
@@ -212,7 +214,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/30/2024 17:49:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/09/2024 15:43:18</publishTime>
+      <publishTime>03/20/2024 16:06:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

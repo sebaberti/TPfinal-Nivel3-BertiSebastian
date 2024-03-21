@@ -18,7 +18,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    gap:10px;
+                    gap: 10px;
                 }
     </style>
 </asp:Content>
@@ -59,13 +59,12 @@
                                 <div class="container-btn">
                                     <asp:Button ID="btnQuitarFAV" runat="server" Text="Quitar de favoritos" OnClick="btnQuitarFAV_Click" class="btn btn-primary" />
                                     <asp:Button ID="btnFav" runat="server" Text="Agregar a favoritos" OnClick="btnFav_Click" class="btn btn-primary" />
-
                                     <a href="Default.aspx" class="btn btn-secondary">Regresar</a>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
             </div>
         </ContentTemplate>

@@ -4,7 +4,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\MSI\OneDrive\Escritorio\pag</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\MSI\OneDrive\Escritorio\paaag</_PublishTargetUrl>
+    <History>True|2024-03-21T02:12:49.5001215Z;True|2024-03-20T18:03:36.3648718-03:00;True|2024-03-20T16:14:01.4106865-03:00;</History>
+    <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Dominio.dll">
@@ -17,16 +19,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/05/2018 16:10:50</publishTime>
     </File>
     <File Include="bin/Negocio.dll">
-      <publishTime>03/20/2024 16:01:50</publishTime>
+      <publishTime>03/20/2024 23:12:48</publishTime>
     </File>
     <File Include="bin/Negocio.pdb">
-      <publishTime>03/20/2024 16:01:50</publishTime>
+      <publishTime>03/20/2024 23:12:48</publishTime>
     </File>
     <File Include="bin/PresentacionWeb.dll">
-      <publishTime>03/20/2024 16:01:51</publishTime>
+      <publishTime>03/20/2024 23:12:48</publishTime>
     </File>
     <File Include="bin/PresentacionWeb.pdb">
-      <publishTime>03/20/2024 16:01:51</publishTime>
+      <publishTime>03/20/2024 23:12:48</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>08/08/2018 05:38:48</publishTime>
@@ -182,7 +184,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/30/2024 17:57:14</publishTime>
     </File>
     <File Include="Detalles.aspx">
-      <publishTime>03/13/2024 17:12:44</publishTime>
+      <publishTime>03/20/2024 16:13:26</publishTime>
     </File>
     <File Include="Error.aspx">
       <publishTime>01/14/2024 17:17:33</publishTime>
@@ -212,7 +214,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/30/2024 17:49:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/09/2024 15:43:18</publishTime>
+      <publishTime>03/20/2024 16:14:01</publishTime>
     </File>
   </ItemGroup>
 </Project>

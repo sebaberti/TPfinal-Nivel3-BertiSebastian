@@ -8,9 +8,12 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.NetworkInformation;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Configuration;
 using System.Web.ModelBinding;
+using System.Web.Script.Services;
 using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -26,22 +29,6 @@ namespace PresentacionWeb
 {
     public partial class Detalles : System.Web.UI.Page
     {
-        //public List<Articulo> Favoritos
-        //{
-        //    get
-        //    {
-        //        if (Session["Favoritos"] == null)
-        //        {
-        //            Session["Favoritos"] = new List<Articulo>();
-        //        }
-        //        return (List<Articulo>)Session["Favoritos"];
-        //    }
-        //    set
-        //    {
-        //        Session["Favorios"] = value;
-        //    }
-        //}
-
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -58,8 +45,6 @@ namespace PresentacionWeb
 
                     Articulo seleccionado = (negocio.listar(id)[0]);
 
-
-
                     imgDetalle.ImageUrl = seleccionado.Imagen;
 
                     lblNombreTitulo.Text = seleccionado.Nombre;
@@ -71,26 +56,31 @@ namespace PresentacionWeb
 
                     FavNegocio negocioFav = new FavNegocio();
 
-
                     Users user = (Users)Session["user"];
-                    List<Favoritoss> listaFavoritos = negocioFav.listar(user.Id.ToString());
-
-                 
-
-
-
-                    if (listaFavoritos.Any(art => art.IdArticulo.Id == seleccionado.Id))
+                    if (user != null)
                     {
-                        btnFav.Visible = false;
-                        btnQuitarFAV.Visible = true;
+                        List<Favoritoss> listaFavoritos = negocioFav.listar(user.Id.ToString());
+
+                        if (listaFavoritos.Any(art => art.IdArticulo.Id == seleccionado.Id))
+                        {
+                            btnFav.Visible = false;
+                            btnQuitarFAV.Visible = true;
+                        }
+                        else
+                        {
+                            btnFav.Visible = true;
+                            btnQuitarFAV.Visible = false;
+                        }
+
                     }
                     else
                     {
-                        btnFav.Visible = true;
                         btnQuitarFAV.Visible = false;
                     }
 
+
                 }
+
 
             }
             catch (Exception ex)
@@ -113,21 +103,18 @@ namespace PresentacionWeb
                 string IdArt = Request.QueryString["id"];
                 Users user = (Users)Session["user"];
 
-                string IdUser = user.Id.ToString();
 
                 if (Seguridad.sesionActiva(Session["user"]))
                 {
+                    string IdUser = user.Id.ToString();
                     FavNegocio negocio = new FavNegocio();
                     negocio.agregarFav(IdUser, IdArt);
                     btnFav.Visible = false;
                     btnQuitarFAV.Visible = true;
-                    
-
-
                 }
                 else
                 {
-                    Response.Redirect("Login.aspx,false");
+                    Response.Redirect("Login.aspx", false);
                 }
             }
             catch (Exception ex)
@@ -142,7 +129,7 @@ namespace PresentacionWeb
         protected void btnQuitarFAV_Click(object sender, EventArgs e)
         {
 
-            
+
             string IdArt = Request.QueryString["id"];
             FavNegocio negocio = new FavNegocio();
 
@@ -157,19 +144,6 @@ namespace PresentacionWeb
 
                 throw ex;
             }
-
-
-            //string id = Request.QueryString["id"];
-            //ArticuloNegocio negocio = new ArticuloNegocio();
-            //List<Articulo> listaFav = negocio.listar(id);
-            //if (lista.Any(art => art.Id == listaFav[0].Id))
-            //{
-            //    Favoritos.RemoveAll(x => x.Id == int.Parse(id));
-            //}
-            //Session["Favoritos"] = Favoritos;
-            //btnFav.Visible = true;
-            //btnQuitarFAV.Visible = false;
-
 
         }
     }

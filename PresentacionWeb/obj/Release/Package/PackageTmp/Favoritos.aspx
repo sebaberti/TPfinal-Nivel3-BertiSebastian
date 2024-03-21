@@ -18,11 +18,11 @@
                 <contenttemplate>
         <div class="row">
             <div class="col-12">
-                    <asp:GridView runat="server" ID="dgvArticulosFavoritos" CssClass="table table-secondary" AutoGenerateColumns="false" DataKeyNames="Id" OnSelectedIndexChanged="dgvArticulosFavoritos_SelectedIndexChanged">
+                    <asp:GridView runat="server" ID="dgvArticulosFavoritos"  CssClass="table table-secondary" AutoGenerateColumns="false" DataKeyNames="Id" OnSelectedIndexChanged="dgvArticulosFavoritos_SelectedIndexChanged" >
                         <columns>
                             
                             <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-                            <asp:BoundField HeaderText="Marca" DataField="Marca.Descripcion" />
+                            <asp:BoundField HeaderText="Marca" DataField="MarcaFav.Descripcion" />
                             <asp:BoundField HeaderText="Precio" DataField="Precio" />
                             <asp:CommandField HeaderText="Accion" ShowSelectButton="true" SelectText="Eliminar" />
 

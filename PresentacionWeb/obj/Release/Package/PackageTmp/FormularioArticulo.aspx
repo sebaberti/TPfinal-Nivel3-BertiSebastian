@@ -18,7 +18,7 @@
 
             <div class="mb-3">
                 <label for="txtNombre" class="form-label">Nombre</label>
-                <asp:TextBox runat="server" ID="TxtNombre" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="TxtNombre" CssClass="form-control" REQUIRED/>
             </div>
 
             <asp:UpdatePanel runat="server">
